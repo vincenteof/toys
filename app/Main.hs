@@ -1,8 +1,12 @@
 module Main where
 
-import qualified MyLib (someFunc)
+import System.Environment (getArgs)
 
 main :: IO ()
 main = do
-  putStrLn "Hello, Haskell!"
-  MyLib.someFunc
+  args <- getArgs
+  case args of
+    ["add", file] -> putStrLn "add file"
+    ["commit", message] -> putStrLn "commit"
+    ["checkout", branch] -> putStrLn "checkout"
+    _ -> putStrLn "Unknow command"

@@ -8,7 +8,7 @@ import System.Directory (createDirectoryIfMissing, doesFileExist)
 import System.FilePath (takeDirectory, (</>))
 import ToyGit.Core (Content, Hash)
 
--- Follw what git really does, just replace `git` with `toygit`
+-- Follow what git really does, just replace `git` with `toygit`
 objectStorePath :: String
 objectStorePath = ".toygit/objects"
 

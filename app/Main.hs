@@ -9,4 +9,4 @@ main = do
     ["add", file] -> putStrLn "add file"
     ["commit", message] -> putStrLn "commit"
     ["checkout", branch] -> putStrLn "checkout"
-    _ -> putStrLn "Unknow command"
+    _ -> putStrLn "Unknown command"

@@ -1,12 +1,11 @@
 module ToyGit.Blob where
 
 import qualified Data.ByteString as BS
-import ToyGit.Core (Content)
 
 -- data Blob = Blob Content
-newtype Blob = Blob Content
+newtype Blob = Blob BS.ByteString
 
-serializeBlob :: Blob -> Content
+serializeBlob :: Blob -> BS.ByteString
 serializeBlob (Blob content) = content
 
 createBlob :: FilePath -> IO Blob

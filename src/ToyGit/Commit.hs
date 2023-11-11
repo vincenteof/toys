@@ -1,6 +1,7 @@
 module ToyGit.Commit where
 
-import ToyGit.Core (Content, Hash)
+import Data.ByteString (ByteString)
+import ToyGit.Core (Hash)
 import ToyGit.Tree (Tree)
 
 data Commit = Commit
@@ -9,7 +10,7 @@ data Commit = Commit
     commitMessage :: String
   }
 
-serializeCommit :: Commit -> Content
+serializeCommit :: Commit -> ByteString
 serializeCommit = undefined
 
 createCommit :: Tree -> Maybe Hash -> String -> IO Commit

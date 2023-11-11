@@ -6,7 +6,7 @@ import qualified Data.ByteString as BS
 import qualified Data.ByteString.Lazy as LBS
 import System.Directory (createDirectoryIfMissing, doesFileExist)
 import System.FilePath (takeDirectory, (</>))
-import ToyGit.Core (Content, Hash)
+import ToyGit.Core (Hash)
 
 -- Follow what git really does, just replace `git` with `toygit`
 objectStorePath :: String
@@ -21,7 +21,7 @@ objectPath hash = objectStorePath </> take 2 hashString </> drop 2 hashString
 
 -- `ObjectStore` acts like an kv database
 -- The key is the hash of the object, and the value is the zlib-deflated content
-storeObject :: Hash -> Content -> IO ()
+storeObject :: Hash -> BS.ByteString -> IO ()
 storeObject hash content = do
   let path = objectPath hash
       compressed = Zlib.compress $ LBS.fromStrict content
@@ -29,7 +29,7 @@ storeObject hash content = do
   LBS.writeFile path compressed
 
 -- The retrieve process is just the opposite of the store process
-retrieveObject :: Hash -> IO (Maybe Content)
+retrieveObject :: Hash -> IO (Maybe BS.ByteString)
 retrieveObject hash = do
   let path = objectPath hash
   exists <- doesFileExist path

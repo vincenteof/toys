@@ -4,9 +4,9 @@ import Data.ByteArray.Encoding (Base (Base16), convertToBase)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BC
 import System.FilePath ((</>))
-import ToyGit.Core (Content, Hash, hashContent)
+import ToyGit.Core (Hash, hashContent)
 
-updateRef :: String -> Content -> IO ()
+updateRef :: String -> ByteString -> IO ()
 updateRef refName content = BC.writeFile (refPath refName) (hashToHex $ hashContent content)
 
 hashToHex :: Hash -> ByteString

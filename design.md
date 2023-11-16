@@ -16,5 +16,6 @@ https://zhuanlan.zhihu.com/p/93950349
 https://git-scm.com/book/en/v2/Git-Internals-Git-Objects
 https://git-scm.com/book/en/v2/Git-Internals-Git-References
 https://git-scm.com/book/en/v2/Git-Internals-Packfiles
+https://konrad126.medium.com/understanding-git-index-4821a0765cf
 https://youtu.be/4XpnKHJAok8
 https://youtu.be/bSA91XTzeuA

@@ -21,6 +21,10 @@ data IndexEntry = IndexEntry
 
 type Index = Map.Map FilePath IndexEntry
 
+
+initIndex :: Index
+initIndex = Map.empty
+
 saveIndex :: FilePath -> Index -> IO ()
 saveIndex indexPath index = withFile indexPath WriteMode $ \handle -> do
   let serialize (path, IndexEntry _ hash) = BC.concat [BC.pack path, " ", hashToHex hash, "\n"]
